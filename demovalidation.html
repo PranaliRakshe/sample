@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title> HTML FORM </title>
+	<link rel = "stylesheet" type="text/css" href = "style.css" />
+	<script type = "text/javascript">
+		function validate()
+		{
+			var name = document.forms["register"]["NAme"];
+			var age = document.forms["register"]["AGe"];
+			var email = document.forms["register"]["EMail"];
+			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			var rs = inputText.value.match(mailformat);
+			var address = document.forms["register"]["ADdress"];
+			var contact = document.forms["register"]["COntact"];
+			var phformat = /^[0]?[789]\d{9}$/;
+			var phone = phformat.test(contact);
+			if(name.value == "")
+			{
+				window.alert("Please enter name");
+				name.focus();
+				return false;
+			}
+			if(age.value == "")
+			{
+				window.alert("Please enter age");
+				age.focus();
+				return false;
+			}
+			/*if(email.value == "")
+			{
+				window.alert("Please enter emailid");
+				email.focus();
+				return false;
+			}
+			if(email.value.indexOf("@",0) < 0)
+			{
+				window.alert("Please enter valid email-id");
+				email.focus();
+				return false;
+			}
+			if(email.value.indexOf(".",0) < 0)
+			{
+				window.alert("Please enter vaild email-id");
+				email.focus();
+				return false;
+			}*/
+			if(!rs)
+			{
+				window.alert("Please enter valid email-id");
+				rs.focus();
+				return false;
+			}
+			if(address.value == "")
+			{
+				window.alert("Please enter address");
+				address.focus();
+				return false;
+			
+			}
+			/*if(contact.value == "")
+			{
+				window.alert("Please enter contact");
+				contact.focus();
+				return false;
+			}*/
+			if(!phone)
+			{
+				window.alert("Please enter valid contact");
+				phone.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+<body>
+<h1> Welcome to Registration Page </h1>
+<div class = "register">
+	<h2> Register here! </h2>
+	<form id = "register" name = "register" method = "POST" action="welcome.html">
+		<label> Name : </label> <br>
+		<input type = "text" name = "NAme" id = "name"><br>
+		<label> Age : </label> <br>
+		<input type = "text" name = "AGe" id = "age"><br>
+		<label> Email : </label> <br>
+		<input type = "email" name = "EMail" id = "email"><br>
+		<label> Address : </label> <br>
+		<input type = "text" name = "ADdress" id = "address"><br>
+		<label> City : </label> <br>
+		<input type = "text" name = "CIty" id = "city"><br>
+		<label> Contact : </label> <br>
+		<input type = "text" name = "COntact" id = "contact" ><br>
+
+		<input type = "submit" value = "Submit" id = "submit" onclick="return (validate());">
+		<input type = "reset" value = "Cancel" id = "cancel"><br>
+	</form>
+</div>
+</body>
+</html>
